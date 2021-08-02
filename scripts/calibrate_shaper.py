@@ -133,7 +133,7 @@ def main():
                     default=None, help="filename of output graph")
     opts.add_option("-c", "--csv", type="string", dest="csv",
                     default=None, help="filename of output csv file")
-    opts.add_option("-f", "--max_freq", type="float", default=200.,
+    opts.add_option("-f", "--max_freq", type="float", default=150.,
                     help="maximum frequency to graph")
     opts.add_option("-s", "--max_smoothing", type="float", default=None,
                     help="maximum shaper smoothing to allow")

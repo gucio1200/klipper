@@ -199,7 +199,7 @@ def main():
     opts = optparse.OptionParser(usage)
     opts.add_option("-o", "--output", type="string", dest="output",
                     default=None, help="filename of output graph")
-    opts.add_option("-f", "--max_freq", type="float", default=200.,
+    opts.add_option("-f", "--max_freq", type="float", default=150.,
                     help="maximum frequency to graph")
     opts.add_option("-r", "--raw", action="store_true",
                     help="graph raw accelerometer data")

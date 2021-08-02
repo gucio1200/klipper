@@ -6,7 +6,7 @@
 import collections, importlib, logging, math, multiprocessing, traceback
 
 MIN_FREQ = 5.
-MAX_FREQ = 200.
+MAX_FREQ = 150.
 WINDOW_T_SEC = 0.5
 MAX_SHAPER_FREQ = 150.
 
