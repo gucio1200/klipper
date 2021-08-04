@@ -311,9 +311,6 @@ class ResonanceTester:
                 if len(axes) > 1:
                     gcmd.respond_info("Testing axis %s" % axis.get_name())
 
-                for chip_axis, chip in self.accel_chips:
-                    if axis.matches(chip_axis):
-                        chip.start_measurements()
                 # Store the original parameters
                 systime = self.printer.get_reactor().monotonic()
                 toolhead_info = toolhead.get_status(systime)
@@ -329,6 +326,10 @@ class ResonanceTester:
                             "Disabled [input_shaper] for resonance testing")
                 else:
                     input_shaper = None
+                # Start acceleration measurements
+                for chip_axis, chip in self.accel_chips:
+                    if axis.matches(chip_axis):
+                        chip.start_measurements()
                 # Generate moves
                 self.test.run_test(axis, gcmd)
                 # Restore the original velocity limits
@@ -341,6 +342,7 @@ class ResonanceTester:
                 if input_shaper is not None:
                     input_shaper.enable_shaping()
                     gcmd.respond_info("Re-enabled [input_shaper]")
+                # Obtain the measurement results
                 raw_values = []
                 for chip_axis, chip in self.accel_chips:
                     if axis.matches(chip_axis):
